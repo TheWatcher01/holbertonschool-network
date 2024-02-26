@@ -7,4 +7,4 @@
 # -t: show TCP connections
 # -u: show UDP connections
 
-ss -ltpn
+ss -ltpnu
