@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Use netstat to display listening ports
 # -l: only show listening sockets
