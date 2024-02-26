@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Use ping to check if a host is on the network
+if [ "$#" -ne 1 ]; then
+  echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+  exit 1
+fi
+ping -c 5 "$1"
