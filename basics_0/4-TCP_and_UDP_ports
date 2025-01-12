@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
 # Display all listening TCP and UDP ports along with their details
-netstat -tulnp | awk 'NR==1 || /LISTEN/'
-
-# Display all listening UNIX domain sockets along with their details
-netstat -lx | awk 'NR==1 || /LISTEN/'
+netstat -a -p
