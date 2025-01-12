@@ -1,6 +1,21 @@
 #!/usr/bin/env bash
-# This script will show the list of open ports on the system
+# This script displays all listening TCP and UDP ports along with their details
+echo "Active Internet connections (only servers)"
+echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
 
+# Use netstat to list all listening TCP and UDP ports along with their details
+# -t: Show TCP ports
+# -u: Show UDP ports
+# -l: Show only listening sockets
+# -n: Show numerical addresses instead of resolving hosts
+# -p: Show the PID and name of the program to which each socket belongs
 netstat -tulnp | grep LISTEN
 
+# Display a header for active UNIX domain sockets (only servers)
+echo "Active UNIX domain sockets (only servers)"
+echo "Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path"
+
+# Use netstat to list all listening UNIX domain sockets along with their details
+# -l: Show only listening sockets
+# -x: Show UNIX domain sockets
 netstat -lx | grep LISTEN
