@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 # This script will show the list of open ports on the system
 
-echo "Active Internet connections (only servers)"
-echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
-
 netstat -tulnp | grep LISTEN
-
-echo "Active UNIX domain sockets (only servers)"
-echo "Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path"
 
 netstat -lx | grep LISTEN
