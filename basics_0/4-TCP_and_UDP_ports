@@ -1,3 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
+
 # Use netstat to display listening ports
 netstat -ltpnu
