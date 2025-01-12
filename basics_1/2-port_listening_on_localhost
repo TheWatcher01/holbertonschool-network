@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script listens on port 98 on localhost using netcat.
+# nc is the command that runs netcat.
+# -l: Used to specify that nc should listen for an incoming connection rather than initiate a connection to a remote host.
+# -k: Used to make nc stay listening for another connection after its current connection is completed.
+# 98: The port number to listen on.
+nc -lk 98
