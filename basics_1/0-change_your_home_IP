@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script will change your home IP address to the one you provide
+
+echo -e "127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com" | sudo tee -a /etc/hosts
