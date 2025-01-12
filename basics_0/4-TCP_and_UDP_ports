@@ -1,4 +1,22 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-# Use netstat to display listening ports
-sudo ss -tulnpx
+# Display a header for active Internet connections (only servers)
+echo "Active Internet connections (only servers)"
+echo "Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name"
+
+# Use netstat to list all listening TCP and UDP ports along with their details
+# -t: Show TCP ports
+# -u: Show UDP ports
+# -l: Show only listening sockets
+# -n: Show numerical addresses instead of resolving hosts
+# -p: Show the PID and name of the program to which each socket belongs
+sudo netstat -tulnp | grep LISTEN
+
+# Display a header for active UNIX domain sockets (only servers)
+echo "Active UNIX domain sockets (only servers)"
+echo "Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path"
+
+# Use netstat to list all listening UNIX domain sockets along with their details
+# -l: Show only listening sockets
+# -x: Show UNIX domain sockets
+sudo netstat -lx | grep LISTEN
