@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
 # Use netstat to display listening ports
-netstat -ltpnu
+sudo ss -tulnpx
