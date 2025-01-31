@@ -1,0 +1,121 @@
+# What Happens When You Type google.com in Your Browser and Press Enter
+
+When you type https://www.google.com in your browser's address bar and press Enter, a complex series of operations takes place, involving multiple layers of technology and infrastructure. Let's explore each component of this process.
+
+what_happens_when_your_type_google_com_in_your_browser_and_press_enter/1-what_happen_when_diagram.png
+
+## 1. DNS Request
+When you enter the URL, your browser needs to find the IP address corresponding to google.com. This process involves:
+
+1. **Browser DNS Cache Check**: First, the browser checks its own DNS cache for a recent lookup of google.com.
+
+2. **Operating System DNS Cache**: If not found in the browser cache, the OS checks its local DNS cache.
+
+3. **DNS Resolver**: If still not found, a request is sent to the DNS resolver (usually provided by your ISP), which follows these steps:
+   - Queries the root nameservers to find .com nameservers
+   - Queries the .com nameservers to find google.com nameservers
+   - Finally queries Google's nameservers to get the IP address for www.google.com
+
+4. **DNS Response**: The IP address is returned and stored in local caches for future use.
+
+## 2. TCP/IP
+Once the IP address is obtained, the TCP/IP connection is established:
+
+1. **TCP Three-Way Handshake**:
+   - Client sends SYN packet to server
+   - Server responds with SYN-ACK packet
+   - Client sends ACK packet
+   
+2. **IP Routing**:
+   - Packets are routed through various network devices using IP protocol
+   - Each router along the path determines the best next hop
+   - Both IPv4 and IPv6 protocols may be used depending on network configuration
+
+## 3. Firewall
+The traffic passes through multiple firewalls:
+
+1. **Client-Side Firewall**:
+   - Personal firewall on your computer
+   - OS-level packet filtering
+   - Application-level controls
+
+2. **Network Firewalls**:
+   - ISP security measures
+   - Enterprise network firewalls (if applicable)
+   - Cloud provider's edge protection
+
+## 4. HTTPS/SSL
+Security is established through:
+
+1. **TLS Handshake**:
+   - Client Hello with supported cipher suites
+   - Server Hello with chosen cipher suite
+   - Certificate exchange and validation
+   - Key exchange and establishment of secure session
+
+2. **SSL Certificate Verification**:
+   - Browser checks certificate validity
+   - Verifies certificate chain to trusted root CA
+   - Confirms certificate hasn't expired
+   - Validates domain name matches certificate
+
+## 5. Load-Balancer
+Google's infrastructure uses sophisticated load balancing:
+
+1. **Global Load Balancing**:
+   - Geographic distribution of requests
+   - Anycast routing for optimal server selection
+   - Health checking and automatic failover
+
+2. **Local Load Balancing**:
+   - Distribution across server clusters
+   - Session persistence if needed
+   - Real-time traffic analysis and adjustment
+
+## 6. Web Server
+The web server handles the initial request:
+
+1. **Request Processing**:
+   - Parsing HTTP headers
+   - URL routing
+   - Static content serving
+   - Security checks
+
+2. **Response Preparation**:
+   - Status code determination
+   - Header generation
+   - Content compression
+   - Caching directives
+
+## 7. Application Server
+The application logic processes the request:
+
+1. **Request Handling**:
+   - User session management
+   - Authentication checks
+   - Business logic execution
+   - Dynamic content generation
+
+2. **Response Generation**:
+   - HTML template rendering
+   - Personalization
+   - A/B testing
+   - Feature flagging
+
+## 8. Database
+The database system provides data storage and retrieval:
+
+1. **Data Operations**:
+   - Query processing
+   - Transaction management
+   - Data consistency checks
+   - Cache utilization
+
+2. **Performance Optimization**:
+   - Connection pooling
+   - Query optimization
+   - Index usage
+   - Replication and sharding
+
+## Summary
+The entire process, from typing the URL to seeing the Google homepage, involves multiple sophisticated systems working together seamlessly. Each component plays a crucial role in delivering a fast, secure, and reliable web experience. Understanding this flow is essential for modern web development and system architecture.
